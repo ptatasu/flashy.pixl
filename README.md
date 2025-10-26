@@ -45,8 +45,7 @@ Created by [ptatasu](https://github.com/ptatasu)
 
 ## 📝 License
 
-This project currently has **no license**.  
-If you’d like to make it open-source, consider adding an [MIT License](https://choosealicense.com/licenses/mit/) or another open-source license.
+This project currently has **no license**.
 
 ---
 
