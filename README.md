@@ -19,7 +19,7 @@ Flashy.Pixl is a web-based photobooth app built with **React**, designed to brin
 
 - **Frontend:** React  
 - **Language:** JavaScript  
-- **Build Tool:** Vite / Create React App (customize as needed)  
+- **Build Tool:** Vite / Create React App
 
 ---
 
