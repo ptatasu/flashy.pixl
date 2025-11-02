@@ -1,16 +1,6 @@
-@font-face {
-  font-family: "Federo";
-  src: url("./fonts/Federo/Federo-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Poppins";
-  src: url("./fonts/Poppins/Poppins-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Poppins-Light";
-  src: url("./fonts/Poppins/Poppins-Light.ttf") format("truetype");
-}
-.container{
+@import url(./fonts/fonts.css);
+
+.main-container{
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -100,7 +90,6 @@
   height: 100vh;
   width: 100vw;
   background-color: #F2F2F2;
-  /* background-color: red; */
   transition: all 0.2s ease-in-out;
   align-items: center;
   justify-content: center;
@@ -125,7 +114,7 @@
 /*********************************************** ANIMATIONS ***********************************************/
 
 .blink-1 {
-	-webkit-animation: blink-1 2s ease-in-out ;
+	-webkit-animation: blink-1 1s ease-in-out ;
 	        animation: blink-1 2s ease-in-out ;
 }
 

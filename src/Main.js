@@ -4,17 +4,20 @@ import hero from './img/assets/hero.jpg';
 import camera from './img/assets/camera_icon.svg';
 import logo from './img/assets/logo.png'
 
-function Main() {
 
+function Main() {
     const loadingRef = useRef(null);
-    const interval = setInterval(splashScreen, 2000);
+    const interval = setInterval(splashScreen, 1500);
     function splashScreen() {
         loadingRef.current.className= 'done-loading';
         clearInterval(interval);
     }
+    const start = () => {
+      window.location.href = "/capture";
+    }
 
   return (
-    <div className='container'>
+    <div className='main-container'>
       <div id='loading' ref={loadingRef} >
         <img id='logo' className='blink-1' src={logo} draggable='false' />
       </div>
@@ -22,7 +25,7 @@ function Main() {
         <span id='hero-title' >Flashy.Pixl</span>
         <span id='hero-label'>Instant Fun.<br />Timeless<br />Snaps.</span>
         <p id='app-label-1'>photobooth made by jamesphiliph</p>
-        <div className='button hero-button'><img src={camera} alt="" srcset=""/></div>
+        <div className='button hero-button' onClick={start}><img src={camera} alt="" srcset=""/></div>
         <p id='app-label-2'>Handcrafted pixels for my favorite person, angela.</p>
         <img id='hero-image' src = {hero}/>
         <div id="footer">

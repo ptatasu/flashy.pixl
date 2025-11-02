@@ -1,0 +1,10 @@
+@import url(./fonts/fonts.css);
+
+.error-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins-Light', sans-serif;
+}

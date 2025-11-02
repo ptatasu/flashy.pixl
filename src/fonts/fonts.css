@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Federo";
+  src: url("Federo/Federo-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("Poppins/Poppins-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Light";
+  src: url("Poppins/Poppins-Light.ttf") format("truetype");
+}
