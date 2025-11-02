@@ -1,0 +1,85 @@
+@import url(./fonts/fonts.css);
+.capture-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#capture-content{
+    display: grid;
+    grid-template-areas: 'webcam webcam webcam'
+                         'timer bottom-label capture-button';
+    text-align: center;
+}
+#webcam{
+    width: 533px;
+    height: 400px;
+    border-radius: 10px;
+    grid-area: webcam;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+#label{
+    font-size: 12px;
+}
+#timer{
+    grid-area: timer;
+}
+.timer-wrapper{
+    grid-area: timer;
+    display: grid;
+    grid-template-areas: 'textbox textbox'
+                         'time-down time-up';
+    justify-content: center;
+}
+.textbox , .timer-button{
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    align-content: center;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+}
+.textbox{
+    grid-area: textbox;
+    height: 40px;
+    width: 100px;
+}
+.timer-button{
+    cursor: pointer;
+    margin-top: 5px;
+    height: 40px;
+    width: 45px;
+}
+#increament{
+    grid-area: time-up;
+}
+#decrement{
+    grid-area: time-down;
+}
+#bottom-label{
+    grid-area: bottom-label;
+    align-content: center;
+    justify-content: center;
+}
+#bottom-label-title{
+    font-family: 'Federo', sans-serif;
+    font-size: 48px;
+}
+#bottom-label-subtext{
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+}
+#capture-button{
+    grid-area: capture-button;
+}
+#image-count{
+    margin-top: 5px;
+}
+
+/************************************************ EFFECTS ************************************************/
+
+.timer-button:hover{
+  background-color: #999999;
+  box-shadow: 0 0 10px #999999;
+}

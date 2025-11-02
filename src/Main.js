@@ -25,7 +25,7 @@ function Main() {
         <span id='hero-title' >Flashy.Pixl</span>
         <span id='hero-label'>Instant Fun.<br />Timeless<br />Snaps.</span>
         <p id='app-label-1'>photobooth made by jamesphiliph</p>
-        <div className='button hero-button' onClick={start}><img src={camera} alt="" srcset=""/></div>
+        <div className='button hero-button' onClick={start}><img src={camera}/></div>
         <p id='app-label-2'>Handcrafted pixels for my favorite person, angela.</p>
         <img id='hero-image' src = {hero}/>
         <div id="footer">
