@@ -1,5 +1,15 @@
 @import url(./fonts/fonts.css);
 
+
+body{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 50%;
+  left: 50%;
+  margin-top: -50vh; /* Negative half of height. */
+  margin-left: -50vw;/* Negative half of width. */
+}
 .main-container{
   height: 100vh;
   display: flex;
@@ -138,5 +148,54 @@
   25%,
   75% {
     opacity: 0;
+  }
+}
+
+/*********************************************** MEDIA QUERY ***********************************************/
+@media (max-width: 600px) {
+  .App {
+    width: 100vw;
+    justify-content: center;
+    grid-template-areas: 'title title'
+                       'label label'
+                       'label-1 label-1'
+                       'hero-button hero-button'
+                       'label-2 label-2'
+                       'footer footer';
+    }
+  #hero-image{
+    display: none;
+  }
+  #hero-label{
+    font-size: 50px;
+    text-align: center;
+    padding-bottom: 200px;
+  }
+  #hero-title{
+    font-size: 82px;
+  }
+  .main-container{
+    justify-content: center;
+  }
+  #app-label-1{
+    justify-content: center;
+  }
+  #app-label-2{
+    text-align: center;
+    padding-bottom: 200px;
+  }
+  .hero-button{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #footer{
+    padding: 0;
+    gap: 5px;
+    grid-template-areas: 'about' 
+                        'madeby'
+                        'version';
+    text-align: left;
   }
 }
