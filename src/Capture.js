@@ -1,7 +1,12 @@
 import "./Capture.css";
+import shutter from "./sounds/camera-shutter.mp3";
 import Webcam from "react-webcam";
 import camera from "./img/assets/camera_icon.svg";
 import { useCallback, useRef } from "react";
+
+const Next = () => {
+  window.location.href = "/editor";
+};
 
 function Capture() {
   const videoConstraints = {
@@ -31,35 +36,46 @@ function Capture() {
   }
 
   function CapturePhoto() {
-    countdownCont.current.style.opacity = "100%";
-    timerValue.current.setAttribute("data-item-value", timer);
+    timerValue.current.style.pointerEvents = "none";
+    countdownCont.current.style.display = "flex";
+    timerValue.current.setAttribute("data-item-value", timer + 1);
     let value = timerValue.current.getAttribute("data-item-value");
     console.log(value);
-    // countdown.current.classList.add("ping");
-    countdown.current.innerHTML = value;
+    countdown.current.className = "ping";
+    if (timer == 0) {
+      countdown.current.innerHTML = "Capturing...";
+    } else {
+      countdown.current.innerHTML = "Capturing in...";
+    }
     const captureInterval = setInterval(function () {
       value--;
-      if (value == 0) {
+      if (value <= 0) {
         clearInterval(captureInterval);
-        countdownCont.current.style.opacity = 0;
-        // countdown.current.classList.remove("ping");
+        countdown.current.className = "";
+        countdownCont.current.style.display = "none";
+        timerValue.current.style.pointerEvents = "auto";
+        captureImage();
       } else {
         countdown.current.innerHTML = value;
       }
     }, 1000);
-    // function captureImage() {
-    //   // const imageSrc = webcamRef.current.getScreenshot();
-    //   // let base64 = JSON.stringify(imageSrc).slice(1, -1);
-    //   // localStorage.setItem("image", base64);
-    //   setInterval(console.log("nagana"), 1000);
-    //   countdown.current.innerHTML = timer;
-    //   counter++;
-    //   let count = counter.toString();
-    //   imageCounter.current.innerHTML = count + "/4";
-    //   // clearInterval(captureInterval);
-    // }
   }
 
+  function captureImage() {
+    // const imageSrc = webcamRef.current.getScreenshot();
+    // let base64 = JSON.stringify(imageSrc).slice(1, -1);
+    // localStorage.setItem("image", base64);
+    counter++;
+    let count = counter.toString();
+    imageCounter.current.innerHTML = count + "/4";
+    sound.play();
+    if (counter == 4) {
+      timerValue.current.style.display = "none";
+      nextButton.current.style.display = "block";
+      nextButton.current.style.fontFamily = "Poppins, sans-serif";
+    }
+  }
+  const nextButton = useRef(null);
   const webcamRef = useRef(null);
   const time = useRef(null);
   const countdown = useRef(null);
@@ -71,6 +87,7 @@ function Capture() {
   const imageCounter = useRef(null);
   let counter = 0;
   let timer = 3;
+  let sound = new Audio(shutter);
 
   return (
     <div className="capture-container">
@@ -97,7 +114,7 @@ function Capture() {
               className="timer-button"
               id="increment"
               ref={incre}
-              onClick={Increment}
+              onPointerDown={Increment}
             >
               +
             </div>
@@ -120,11 +137,13 @@ function Capture() {
           <div className="hero-button" onClick={CapturePhoto} ref={timerValue}>
             <img src={camera} />
           </div>
+          <div className="hero-button hidden" onClick={Next} ref={nextButton}>
+            Next
+          </div>
           <div className="textbox" id="image-count" ref={imageCounter}>
             0/4
           </div>
         </div>
-        <img src={camera} ref={sda} /> {/*placeholder to see the image*/}
       </div>
     </div>
   );

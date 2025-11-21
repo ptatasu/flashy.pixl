@@ -29,13 +29,14 @@
   border-radius: 10px;
   background-color: hsla(0, 0%, 100%, 0.5);
   z-index: 1;
-  opacity: 0;
-  display: flex;
+  /* opacity: 0; */
+  display: none;
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
 }
 .ping {
+  transition: all 0.3 ease-in-out;
   -webkit-animation: ping 1s ease-in-out 1s infinite both;
   animation: ping 1s ease-in-out 1s infinite both;
 }
@@ -96,6 +97,9 @@
 }
 #image-count {
   margin-top: 5px;
+}
+.hidden {
+  display: none;
 }
 
 /************************************************ EFFECTS ************************************************/
@@ -165,5 +169,8 @@
     height: 90px;
     border-radius: 100%;
     margin: auto;
+  }
+  #countdown-timer-container {
+    margin-top: 119px;
   }
 }
